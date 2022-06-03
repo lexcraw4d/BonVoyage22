@@ -1,0 +1,22 @@
+{
+  "name": "bonvoyage22",
+  "version": "1.0.0",
+  "description": "BonVoyageII Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexcraw4d/BonVoyage22.git"
+  },
+  "keywords": [
+    "hackathon"
+  ],
+  "author": "TEAM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lexcraw4d/BonVoyage22/issues"
+  },
+  "homepage": "https://github.com/lexcraw4d/BonVoyage22#readme"
+}
