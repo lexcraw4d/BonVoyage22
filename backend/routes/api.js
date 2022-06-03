@@ -10,16 +10,27 @@ router.get('/test', function(req, res, next) {
   res.json({message:'OK'});
 });
 
-router.get('/loc', async function(req, res, next) {
+/*
+    Return an array of POI in the given radius of a location.
+
+    Uses the Places Nearby Search API:
+    https://developers.google.com/maps/documentation/javascript/get-api-key#place_search_requests
+*/
+router.get('/nearby', async function(req, res, next) {
   const params = {
-    input: "Museum of Modern Art",
-    inputtype: PlaceInputType.textQuery,
     key: config.api.key,
-    fields: ["place_id", "name", "formatted_address"],
+    location: [-33.8665433,151.1956316],
+    radius: 5000,
+    type: PlaceType1.restaurant,
   };
 
-  const r = await client.findPlaceFromText({ params: params });
-  res.json(r.data);
+  try {
+    const r = await client.placesNearby({ params: params });
+    res.json(r.data);
+  }
+  catch(error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
