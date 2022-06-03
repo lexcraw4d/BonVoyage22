@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node backend/app.js",
-    "test": "npm test"
+    "test": "mocha --exit backend/test"
   },
   "repository": {
     "type": "git",
