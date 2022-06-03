@@ -4,6 +4,7 @@
   "description": "BonVoyageII Hackathon",
   "main": "index.js",
   "scripts": {
+    "start": "node backend/app.js",
     "test": "npm test"
   },
   "repository": {
