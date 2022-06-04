@@ -5,6 +5,7 @@ const config = require('../config.js');
 
 const { Client, PlaceInputType, PlaceType1, PlaceType2 } = require("@googlemaps/google-maps-services-js");
 const client = new Client({});
+const types = Object.getOwnPropertyNames(PlaceType1);
 
 /*
   XXX Remove this once you start having "real" tests :/
@@ -18,16 +19,6 @@ router.get('/test', function(req, res, next) {
     the `/api/nearby` endpoint.
 */
 router.get('/types', function(req, res, next) {
-  // XXX Just mock then endpoint for now
-  // Probably, should iterate of ownPropertiesOf PlaceType1
-  const types = [
-    PlaceType1.airport,
-    PlaceType1.bar,
-    PlaceType1.dentist,
-    PlaceType1.restaurant,
-    PlaceType1.supermarket,
-  ];
-
   res.json({
     results: types,
     status: "OK",
@@ -49,7 +40,7 @@ router.get('/nearby', async function(req, res, next) {
   // XXX Handle exception in parameter types
   const lat = parseFloat(req.query.lat);
   const lng = parseFloat(req.query.lng);
-  const type = req.query.type || PlaceType1.restaurant;
+  const type = PlaceType1[req.query.type || 'restaurant'];
 
   const params = {
     key: config.api.key,
