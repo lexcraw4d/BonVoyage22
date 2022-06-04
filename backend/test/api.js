@@ -17,6 +17,30 @@ describe('API', function () {
     });
   });
 
+  describe('/nearby endpoint', function () {
+    it('should reject missing lattitude', function () {
+      return chai.request(server)
+        .get('/api/nearby?lng=110&type=bar')
+        .then((res) => {
+          assert.equal(res.status, 400);
+        });
+    });
+    it('should reject missing longitude', function () {
+      return chai.request(server)
+        .get('/api/nearby?lat=35&type=bar')
+        .then((res) => {
+          assert.equal(res.status, 400);
+        });
+    });
+    it('should reject bad type', function () {
+      return chai.request(server)
+        .get('/api/nearby?lat=35&lon=110&type=ufo')
+        .then((res) => {
+          assert.equal(res.status, 400);
+        });
+    });
+  });
+
   describe('/types endpoint', function () {
     it('should return a list of types', function () {
       return chai.request(server)
