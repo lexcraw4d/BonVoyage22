@@ -4,7 +4,8 @@
   "description": "BonVoyageII Hackathon",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "start": "node backend/app.js",
+    "test": "mocha --exit backend/test"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/lexcraw4d/BonVoyage22/issues"
   },
-  "homepage": "https://github.com/lexcraw4d/BonVoyage22#readme"
+  "homepage": "https://github.com/lexcraw4d/BonVoyage22#readme",
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.15",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
+  }
 }
