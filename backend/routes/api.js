@@ -8,6 +8,17 @@ const client = new Client({});
 const types = Object.getOwnPropertyNames(PlaceType1);
 
 /*
+  Helpers (move in their own file?)
+*/
+function sendErrInvalid(req, res) {
+  res.status(400);
+  res.json({
+    results: [],
+    status: "ERR_INVALID",
+  });
+}
+
+/*
   XXX Remove this once you start having "real" tests :/
 */
 router.get('/test', function(req, res, next) {
@@ -37,16 +48,21 @@ router.get('/types', function(req, res, next) {
     Type is optional and defaults to 'retaurant'
 */
 router.get('/nearby', async function(req, res, next) {
-  // XXX Handle exception in parameter types
-  const lat = parseFloat(req.query.lat);
-  const lng = parseFloat(req.query.lng);
-  const type = PlaceType1[req.query.type || 'restaurant'];
+  const lat = Number(req.query.lat);
+  const lng = Number(req.query.lng);
+  const type = req.query.type || 'restaurant';
+
+  // Paramater validation
+  if (!Number.isFinite(lat) || !Number.isFinite(lng) || (types.indexOf(type) == -1)) {
+    return sendErrInvalid(req, res);
+  }
+  // else
 
   const params = {
     key: config.api.key,
     location: [lat, lng],
     radius: 5000,
-    type: type
+    type: PlaceType1[type],
   };
 
   try {
