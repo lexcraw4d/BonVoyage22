@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PlaceDetail = () => {
+const PlaceDetail = (props) => {
   return (
     <div>PlaceDetail</div>
   )

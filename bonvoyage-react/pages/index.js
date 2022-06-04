@@ -5,12 +5,22 @@ import List from '../components/List'
 import Map from '../components/Map'
 import PlaceDetail from '../components/PlaceDetail'
 
+
+const places = [
+  {name: 'Sample Place1'},
+  {name: 'Sample Place1'},
+  {name: 'Sample Place1'},
+  {name: 'Sample Place1'},
+  {name: 'Sample Place1'},
+  {name: 'Sample Place1'}
+]
+
 const Home = () => {
 
   const [coordinates, setCoordinates] = useState({lat: 34.852619, lng: -82.394012})
   const [type, setType] = useState('restaurants');
   const [ratings, setRatings] = useState("")
-
+  const [isLoading, setIsLoading] = useState(true)
   return (
   <Flex
     justifyContent = {"center"}
@@ -29,9 +39,9 @@ const Home = () => {
      
     />
 
-    {/* <List /> */}
+    <List places={places} isLoading={isLoading} />
 
-    <Map setCoordinates = {setCoordinates} coordinates = {coordinates}/>
+    <Map setCoordinates = {setCoordinates} coordinates = {coordinates} />
 
   </Flex>
   )

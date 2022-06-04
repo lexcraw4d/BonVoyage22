@@ -1,11 +1,10 @@
 import {React, useState} from "react";
 import { Box, MenuItem, MenuList } from "@chakra-ui/react";
-
 import GoogleMapReact from 'google-map-react';
 
 const Map = ({coordinates, setCoordinates }) => {
-
   
+
   return (
     <Box width={"full"} height={"full"}>
       
@@ -18,10 +17,10 @@ const Map = ({coordinates, setCoordinates }) => {
       options = {""}
       onChange = {() => {}}
       onChildClick = {() => {}}
-      
+
       >
-     
-    
+      
+
 
       </GoogleMapReact>
     </Box>
