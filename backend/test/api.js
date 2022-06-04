@@ -12,7 +12,21 @@ describe('API', function () {
         .get('/api/test')
         .then((res) => {
           assert.equal(res.status, 200);
-          assert.deepEqual(res.body, { message: 'OK' });
+          assert.deepEqual(res.body, { status: 'OK' });
+        });
+    });
+  });
+
+  describe('/types endpoint', function () {
+    it('should return a list of types', function () {
+      return chai.request(server)
+        .get('/api/types')
+        .then((res) => {
+          assert.equal(res.status, 200);
+          assert.equal(res.body.status, 'OK');
+          assert.include(res.body.results, 'bar');
+          assert.include(res.body.results, 'dentist');
+          assert.include(res.body.results, 'restaurant');
         });
     });
   });
