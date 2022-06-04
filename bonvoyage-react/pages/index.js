@@ -26,6 +26,7 @@ const Home = () => {
       setType = {setType}
       setRatings = {setRatings}
       setCoordinates = {setCoordinates}
+     
     />
 
     {/* <List /> */}

@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, MenuItem, MenuList } from "@chakra-ui/react";
 
 import GoogleMapReact from 'google-map-react';
 
@@ -8,8 +8,9 @@ const Map = ({coordinates, setCoordinates }) => {
   
   return (
     <Box width={"full"} height={"full"}>
+      
       <GoogleMapReact 
-      bootstrapURLKeys={{key: 'APIKEY'}}
+      bootstrapURLKeys={{key: 'AIzaSyBdyP2inMcrQSveGDd5xJX_9qL6r3LwH2Y'}}
       defaultCenter = { coordinates }
       center = { coordinates }
       defaultZoom = { 10 }
@@ -17,9 +18,10 @@ const Map = ({coordinates, setCoordinates }) => {
       options = {""}
       onChange = {() => {}}
       onChildClick = {() => {}}
-
+      
       >
-
+     
+    
 
       </GoogleMapReact>
     </Box>
