@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet"  href="./style.css" />
+    
+  </head>
+  
+    <input id="address" type="textbox" placeholder="Enter your destination" />
+    <input id="submit" type="button" value="Let's go!" onclick="searchAddress()" />
+    <div id = "map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=APIKEYTOGOHERE&libraries=localContext&v=beta&callback=initMap">
+</script>
+<script type='text/javascript' src='config.js'></script>
+<script src="script.js"></script>
+  </body>
+</html>
