@@ -17,11 +17,16 @@ router.get('/test', function(req, res, next) {
     https://developers.google.com/maps/documentation/javascript/get-api-key#place_search_requests
 */
 router.get('/nearby', async function(req, res, next) {
+  // XXX Handle exception in parameter types
+  const lat = parseFloat(req.query.lat);
+  const lng = parseFloat(req.query.lng);
+  const type = req.query.type || PlaceType1.restaurant;
+
   const params = {
     key: config.api.key,
-    location: [-33.8665433,151.1956316],
+    location: [lat, lng],
     radius: 5000,
-    type: PlaceType1.restaurant,
+    type: type
   };
 
   try {
